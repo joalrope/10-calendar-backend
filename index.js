@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+
 
 
 // Crear el servidor de Express
@@ -6,19 +8,24 @@ const app = express();
 
 
 
+// Middlewares (Funciones que se ejecutaran cada vez que se realicen peticiones)
+// Directorio publico
+app.use(express.static('public'));
+
+
+
+// Rutas
+app.use('/api/auth', require('./routes/auth'));
+
+
+
 // Establecer rutas
-app.get('/', (req, res) => {
-
-    console.log('Se rquiere el /')
-    res.json({
-        ok: true
-    });
-});
-
+// TODO: auth // crear, login, renew token
+// TODO: CRUD: Eventos
 
 
 
 // Escuchar peticiones
-app.listen(4000, () => {
-    console.log(`Servidor corriendo en el puerto: ${4000}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor corriendo en el puerto: ${process.env.PORT}`);
 });
