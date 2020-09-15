@@ -9,8 +9,13 @@ const app = express();
 
 
 // Middlewares (Funciones que se ejecutaran cada vez que se realicen peticiones)
-// Directorio publico
+// Directorio publico (Archivos estaticos)
 app.use(express.static('public'));
+
+
+
+// Lectura y parseo del body
+app.use(express.json());
 
 
 
