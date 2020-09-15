@@ -13,10 +13,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-<<<<<<< HEAD
+    "express-validator": "^6.6.1",
     "mongoose": "^5.10.5"
-=======
-    "express-validator": "^6.6.1"
->>>>>>> 60d339e546eb81d6ce83b89f6d188d4959cf3b79
   }
 }
