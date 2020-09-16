@@ -6,33 +6,7 @@ const {fieldsValidator} = require('../middlewares/fields-validator');
 /*
     Rutas de Usuarios / Auth
     host + api/auth
-*/
-<<<<<<< HEAD
-const router = require('express').Router();
-
-
-router.post('/new', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'registro'
-    });
-});
-
-router.post('/', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'login'
-    });
-});
-
-router.get('/renew', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'renew'
-    });
-});
-
-=======
+*/ 
 router.post(
     '/new',
     [   //middleware
@@ -71,7 +45,6 @@ router.post(
     userLogin);
 
 router.get('/renew', revalidateToken);
->>>>>>> 60d339e546eb81d6ce83b89f6d188d4959cf3b79
 
 module.exports = router;
 
