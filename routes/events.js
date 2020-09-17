@@ -23,8 +23,11 @@ router.post(
     '/',
     [
         check('title').exists().withMessage('El Titulo es Obligatorio'),
-        check('start').custom(isDate).withMessage('El inicio es Obligatorio'),
-        check('end').custom(isDate).withMessage('El final es Obligatorio'),
+        check('start').exists().withMessage('La fecha de Inicio es obligatoria')
+            .custom(isDate).withMessage('La fecha de Inicio no es una fecha válida'),
+
+        check('end').exists().withMessage('La fecha de finalización es obligatoria')
+            .custom(isDate).withMessage('La fecha de finalización no es una fecha válida'),
 
         fieldsValidator
     ],

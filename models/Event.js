@@ -5,7 +5,7 @@ const { schema } = require('./User');
 const EventSchema = Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
     notes: {
         type: String,
@@ -13,16 +13,23 @@ const EventSchema = Schema({
     },
     start: {
         type: Date,
-        require: true
+        required: true
     },
     end: {
         type: Date,
-        require: true
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'Usuario'
+        ref: 'Usuario',
+        required: true
     }
+});
+
+EventSchema.method('toJSON', function() {
+    const {__v, _id, ...object} = this.toObject();
+    const id = _id;
+    return {id, ...object}
 });
 
 
