@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const { getEvents, createEvent, updateEvent, deleteEvent } = require('../controllers/events');
+const {check} = require('express-validator');
+const {fieldsValidator} = require('../middlewares/fields-validator');
 const {jwtValidator} = require('../middlewares/jwt-validator');
+const {getEvents, createEvent, updateEvent, deleteEvent} = require('../controllers/events');
+const {isDate} = require('../helper/isDate');
 
 /*
     Rutas de Eventos (events routes)
@@ -16,7 +19,17 @@ router.get('/', getEvents);
 
 
 //Crear un nuevo evento
-router.post('/', createEvent);
+router.post(
+    '/',
+    [
+        check('title').exists().withMessage('El Titulo es Obligatorio'),
+        check('start').custom(isDate).withMessage('El inicio es Obligatorio'),
+        check('end').custom(isDate).withMessage('El final es Obligatorio'),
+
+        fieldsValidator
+    ],
+    createEvent
+);
 
 
 //Actualizar informacion de un evento

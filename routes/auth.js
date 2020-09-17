@@ -12,8 +12,7 @@ router.post(
     '/new',
     [   //middleware
         check('name')
-            .not().isEmpty()
-            .withMessage('El nombre es obligatorio'),
+            .exists().withMessage('El nombre es obligatorio'),
         
         check('email')
             .isEmail().withMessage('El email no es valido')
