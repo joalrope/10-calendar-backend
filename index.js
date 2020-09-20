@@ -35,12 +35,6 @@ app.use('/events', require('./routes/events'));
 
 
 
-// Establecer rutas
-// TODO: auth // crear, login, renew token
-// TODO: CRUD: Eventos
-
-
-
 // Escuchar peticiones
 app.listen(process.env.PORT, () => {
     console.log(`Servidor corriendo en el puerto: ${process.env.PORT}`);

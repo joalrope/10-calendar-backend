@@ -10,6 +10,7 @@ const dbConnection = async() => {
             useCreateIndex: true
         });
 
+        mongoose.set('useFindAndModify', false);
         console.log('DB Online');
         
     } catch (error) {
