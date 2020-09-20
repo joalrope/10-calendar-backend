@@ -31,7 +31,7 @@ app.use(express.json());
 
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
-app.use('/events', require('./routes/events'));
+app.use('/api/events', require('./routes/events'));
 
 
 

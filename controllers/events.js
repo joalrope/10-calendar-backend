@@ -27,7 +27,7 @@ const createEvent = async (req = request, res = response ) => {
         res.json({
             ok: true,
             msg: 'Evento creado',
-            evento: savedEvent
+            event: savedEvent
         });
 
     } catch (error) {
