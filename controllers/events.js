@@ -1,5 +1,4 @@
 const {request, response} = require('express');
-const { find } = require('../models/Event');
 const Event = require('../models/Event');
 
 
